@@ -14,6 +14,11 @@ data = load_data()
 # Set Streamlit page configuration
 st.set_page_config(page_title="Data Analysis Presentation", layout="wide")
 
+
+# Add the header and group name
+st.title("Data Analysis Techniques")
+st.subheader("Group Name: Third Streak")
+
 # Tabs for Navigation
 tab1, tab2, tab3, tab4 = st.tabs(["Overview", "Data Exploration", "Analysis and Insights", "Conclusions and Recommendations"])
 
@@ -103,7 +108,7 @@ with tab2:
     correlation_matrix = data[numeric_fields].corr()
 
     # Correlation heatmap using matplotlib and seaborn
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(6, 4))  # Smaller size
     sns.heatmap(correlation_matrix, annot=True, cmap="coolwarm", fmt=".2f")
     plt.title("Correlation Matrix")
     st.pyplot(plt)
@@ -153,7 +158,7 @@ with tab3:
         ]
 
         # Scatter plot with log scale
-        plt.figure(figsize=(10, 8))
+        plt.figure(figsize=(6, 4))  # Smaller size
         colors = np.log10(filtered_data['Confirmed'])
 
         scatter = plt.scatter(
@@ -248,7 +253,7 @@ with tab3:
         colors = np.log10(filtered_data['Confirmed'])
 
         # Scatter plot with regression line
-        plt.figure(figsize=(10, 8))
+        plt.figure(figsize=(6, 4))  # Smaller size
         scatter = plt.scatter(
             filtered_data['Confirmed'],
             filtered_data['Deaths'],
